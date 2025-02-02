@@ -1,6 +1,6 @@
-import { MagnifyingGlassPlus } from 'phosphor-react';
-
 import Logo from './assets/logo.svg';
+import GameBanner from './components/GameBanner';
+import CreateAdBanner from './components/CreateAdBanner';
 
 export default function App() {
 	return (
@@ -15,71 +15,27 @@ export default function App() {
 			</h1>
 
 			<div className="grid grid-cols-6 gap-6 mt-16">
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-1.png" alt="Game 1" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">League of Legends</strong>
-						<p className="text-zinc-300 text-xs block">4 Ads</p>
-					</div>
-				</a>
-
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-2.png" alt="Game 2" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">Dota 2</strong>
-						<p className="text-zinc-300 text-xs block">9 Ads</p>
-					</div>
-				</a>
-
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-3.png" alt="Game 3" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">Counter Strike</strong>
-						<p className="text-zinc-300 text-xs block">32 Ads</p>
-					</div>
-				</a>
-
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-4.png" alt="Game 4" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">World of Warcraft</strong>
-						<p className="text-zinc-300 text-xs block">48 Ads</p>
-					</div>
-				</a>
-
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-5.png" alt="Game 5" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">Apex Legends</strong>
-						<p className="text-zinc-300 text-xs block">74 Ads</p>
-					</div>
-				</a>
-
-				<a href="#" className="relative rounded-lg overflow-hidden">
-					<img src="/game-6.png" alt="Game 6" />
-					<div className="w-full pt-16 pb-4 px-4 bg-game-gradient absolute bottom-0 left-0 right-0">
-						<strong className="font-bold text-white">Fortnite</strong>
-						<p className="text-zinc-300 text-xs block">4 Ads</p>
-					</div>
-				</a>
+				<GameBanner
+					bannerUrl="/game-1.png"
+					gameName="League of Legends"
+					adsCount={0}
+				/>
+				<GameBanner bannerUrl="/game-2.png" gameName="Dota 2" adsCount={1} />
+				<GameBanner bannerUrl="/game-3.png" gameName="CS: GO" adsCount={2} />
+				<GameBanner
+					bannerUrl="/game-4.png"
+					gameName="World of Warcraft"
+					adsCount={3}
+				/>
+				<GameBanner
+					bannerUrl="/game-5.png"
+					gameName="Apex Legends"
+					adsCount={4}
+				/>
+				<GameBanner bannerUrl="/game-6.png" gameName="Fortnite" adsCount={5} />
 			</div>
 
-			<div className="pt-1 bg-e-sportsGradient self-stretch overflow-hidden rounded-lg mt-8">
-				<div className="bg-[#2A2634] px-8 py-6 flex items-center justify-between">
-					<div>
-						<strong className="text-2xl text-white font-black block">
-							{`Didn't find your duo?`}
-						</strong>
-						<span className="text-zinc-400">
-							Post an ad to find new players!
-						</span>
-					</div>
-					<button className="flex items-center gap-3 px-4 py-3 bg-violet-500 hover:bg-violet-600 text-white rounded mt-4">
-						<MagnifyingGlassPlus size={24} />
-						Post ad
-					</button>
-				</div>
-			</div>
+			<CreateAdBanner />
 		</div>
 	);
 }
