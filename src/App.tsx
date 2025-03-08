@@ -58,7 +58,9 @@ export default function App() {
 							top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
 							rounded-lg w-[480px] shadow-lg shadow-black/20"
 					>
-						<Dialog.Title>Post AD</Dialog.Title>
+						<Dialog.Title className="text-3xl font-black">
+							Post an AD
+						</Dialog.Title>
 						<Dialog.Content>Content</Dialog.Content>
 					</Dialog.Content>
 				</Dialog.Portal>
