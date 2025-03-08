@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 
+import * as Dialog from '@radix-ui/react-dialog';
+
 import { api } from './services/api';
 import Logo from './assets/logo.svg';
 import GameBanner from './components/GameBanner';
@@ -19,7 +21,7 @@ export default function App() {
 
 	useEffect(() => {
 		async function getGames() {
-			await api<GameProps[]>('http://localhost:3333/games').then(response => {
+			await api<GameProps[]>('/games').then(response => {
 				setGames(response.data);
 			});
 		}
@@ -47,8 +49,20 @@ export default function App() {
 					/>
 				))}
 			</div>
-
-			<CreateAdBanner />
+			<Dialog.Root>
+				<CreateAdBanner />
+				<Dialog.Portal>
+					<Dialog.Overlay className="bg-black/60 inset-0 fixed" />
+					<Dialog.Content
+						className="fixed bg-[#2A2634] py-8 px-10 text-white
+							top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+							rounded-lg w-[480px] shadow-lg shadow-black/20"
+					>
+						<Dialog.Title>Post AD</Dialog.Title>
+						<Dialog.Content>Content</Dialog.Content>
+					</Dialog.Content>
+				</Dialog.Portal>
+			</Dialog.Root>
 		</div>
 	);
 }
