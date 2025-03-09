@@ -4,11 +4,7 @@ interface GameBannerProps {
 	adsCount: number;
 }
 
-export default function GameBanner({
-	bannerUrl,
-	gameName,
-	adsCount
-}: GameBannerProps) {
+export function GameBanner({ bannerUrl, gameName, adsCount }: GameBannerProps) {
 	return (
 		<a href="#" className="relative rounded-lg overflow-hidden">
 			<img src={bannerUrl} alt="Game 1" />
